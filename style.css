@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+:root {
+  --background-color: #046973;
+  --large-circle-color: #010f1c;
+  --light-color: #dcebfe;
+  --gradient-color-light: #5fa0ac;
+  --gradient-color-light-border: #65a3ad;
+  --gradient-color-dark: #004a54;
+  --gradient-color-dark-border: #03505a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background-color) url('https://c4.wallpaperflare.com/wallpaper/580/191/825/space-planet-abstract-space-art-wallpaper-preview.jpg') no-repeat center center/cover;
+  color: var(--light-color);
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+h1 {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 1.5rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  transform: scale(1);
+}
+
+.circle {
+  background-color: var(--large-circle-color);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.gradient-circle {
+  background: conic-gradient(
+    var(--gradient-color-light) 0%,
+    var(--gradient-color-light-border) 21%,
+    var(--light-color) 21%,
+    var(--light-color) 58%,
+    var(--gradient-color-dark-border) 58%,
+    var(--gradient-color-dark) 100%
+  );
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: -2;
+}
+
+.pointer {
+  background-color: var(--light-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: block;
+}
+
+.pointer-container {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 20px;
+  height: 190px;
+  animation: rotate 19s linear forwards infinite;
+  transform-origin: bottom center;
+  transform: translateX(-50%);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container.grow {
+  animation: grow 4s linear forwards;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.container.shrink {
+  animation: shrink 8s linear forwards;
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .gradient-circle {
+    width: 270px;
+    height: 270px;
+    top: -8px;
+    left: -8px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    left: 1rem;
+  }
+
+  .pointer-container {
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .gradient-circle {
+    width: 220px;
+    height: 220px;
+    top: -6px;
+    left: -6px;
+  }
+
+  h1 {
+    font-size: 1rem;
+    left: 0.5rem;
+  }
+
+  .pointer-container {
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .gradient-circle {
+    width: 200px;
+    height: 200px;
+    top: -5px;
+    left: -5px;
+  }
+
+  h1 {
+    font-size: 0.9rem;
+    left: 0.5rem;
+  }
+
+  .pointer-container {
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
